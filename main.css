@@ -32,9 +32,6 @@ header, nav, footer, section, article, div {
   /*width: 100%;*/
 }
 
-.main {
-  width: 150px;
-}
 
 ul {
   list-style: none;
@@ -175,6 +172,11 @@ main {
  * Content
  *
  */
+
+.content {
+  display: flex;
+  flex-wrap: wrap;
+}
 
 
 /*
@@ -444,10 +446,56 @@ and make the drawer menu off canvas*/
     z-index: -1;
   }
 
-.nav a {
-  color: #616161;
-  padding: 0;
+  .nav a {
+    color: #616161;
+    padding: 0;
+  }
+
+  .header__title {
+    font-size: 3em;
+  }
+
 }
 
+/* create a Layout Shifter responsive design */
+@media screen and (min-width:500px) {
+  .hero {
+    order: -1;
+  }
+  .top-news {
+    width: 60%;
+    order: -1;
+  }
 
+  .weather {
+    width: 40%;
+    order: -1;
+  }  
+}
+
+@media screen and (min-width:750px) {
+  body {
+    font-size: 14px;
+  }
+  
+  .nav__item {
+    font-size: 14px;
+  }
+
+  .top-news {
+    width: 35%;
+    order: -1;
+  }
+
+  .hero {
+    width: 65%;
+  }
+  .scores {
+    order: 2;
+    width: 65%;
+  }
+  .weather {
+    width: 35%;
+    order: 1;
+  }
 }
