@@ -178,7 +178,6 @@ main {
   flex-wrap: wrap;
 }
 
-
 /*
  *
  * Hero
@@ -205,7 +204,6 @@ main {
   color: #fff;
   padding: 1em;
 }
-
 
 /*
  *
@@ -275,6 +273,9 @@ main {
   padding: 1em; 
 }
 
+.scores h3 {
+  display: none;
+}
 .scores__table th {
   color: #fff;
   font-weight: 300;
@@ -457,42 +458,11 @@ and make the drawer menu off canvas*/
 
 }
 
-/* create a Layout Shifter responsive design */
+/* 
+create a Layout Shifter responsive design 
+*/
 
-@media screen and (max-width: 300px), (min-width: 500px) and (max-width: 650px), (min-width: 750px) and (max-width: 800px) {
-  /*
-  change to weather arrangement
-  */
-  .weather__today img{
-    width: 60px;
-    font-size: 1.5em;
-  }
-
-  .weather__today span {
-    font-size: 1.5em;
-    text-align: right;
-  }
-  .weather ul {
-    width: 100%;
-  }
-  .weather__next li {
-    display: table;
-    width: 100%;
-    border-bottom: 1px dotted #8F8282;
-  }
-  .weather__next li * {
-    display: table-cell;
-    vertical-align: middle;
-    width: 33.3%;
-  }
-  .weather__next li span:first-of-type{
-    text-align: left;
-  }
-  .weather__next li span:last-of-type{
-    text-align: left;
-  }
-}
-
+/* change the elements arrangement according to the screen size */
 @media screen and (min-width:500px) {
   .hero {
     order: -1;
@@ -534,3 +504,88 @@ and make the drawer menu off canvas*/
     order: 1;
   }
 }
+
+/* deal with  table when screen is very small and display it in rows*/
+@media screen and (max-width:300px) {
+  .scores h3 {
+    display: block;
+    width: 100%;
+    background-color: #78909C;
+    padding: 5px;
+    color: white;
+  }
+
+  .scores__table td:nth-child(3) {
+    text-align: left;
+  }
+
+  .scores__table td:nth-child(2),
+  .scores__table td:nth-child(5) {
+    text-align: left;
+  }
+
+  .scores__table table, thead, tbody, th, td, tr {
+    display: block;
+  }
+
+  .scores__table thead tr {
+    position: absolute;
+    top:  - 99999px;
+    left: -9999px;
+  }
+
+  .scores__table td {
+      position: relative;
+      padding-left: 50%;
+      padding-top: 5px;
+      /*margin-top: 5px;*/
+  }
+
+  .scores__table td:before {
+      position: absolute;
+      left: 6px;
+      top: 0;
+      content: attr(data-th);
+      font-weight: bold;
+      padding-top: 5px;
+      /*margin-top: 5px;*/
+  }
+  .scores {
+    order: 3;
+  }
+}
+
+/*
+change to weather arrangement
+*/
+@media screen and (max-width: 300px), (min-width: 500px) and (max-width: 650px), (min-width: 750px) and (max-width: 800px) {
+  .weather__today img{
+    width: 60px;
+    font-size: 1.5em;
+  }
+
+  .weather__today span {
+    font-size: 1.5em;
+    text-align: right;
+  }
+  .weather ul {
+    width: 100%;
+  }
+  .weather__next li {
+    display: table;
+    width: 100%;
+    border-bottom: 1px dotted #8F8282;
+  }
+  .weather__next li * {
+    display: table-cell;
+    vertical-align: middle;
+    width: 33.3%;
+  }
+  .weather__next li span:first-of-type{
+    text-align: left;
+  }
+  .weather__next li span:last-of-type{
+    text-align: left;
+  }
+}
+
