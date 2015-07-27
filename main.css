@@ -458,6 +458,41 @@ and make the drawer menu off canvas*/
 }
 
 /* create a Layout Shifter responsive design */
+
+@media screen and (max-width: 300px), (min-width: 500px) and (max-width: 650px), (min-width: 750px) and (max-width: 800px) {
+  /*
+  change to weather arrangement
+  */
+  .weather__today img{
+    width: 60px;
+    font-size: 1.5em;
+  }
+
+  .weather__today span {
+    font-size: 1.5em;
+    text-align: right;
+  }
+  .weather ul {
+    width: 100%;
+  }
+  .weather__next li {
+    display: table;
+    width: 100%;
+    border-bottom: 1px dotted #8F8282;
+  }
+  .weather__next li * {
+    display: table-cell;
+    vertical-align: middle;
+    width: 33.3%;
+  }
+  .weather__next li span:first-of-type{
+    text-align: left;
+  }
+  .weather__next li span:last-of-type{
+    text-align: left;
+  }
+}
+
 @media screen and (min-width:500px) {
   .hero {
     order: -1;
