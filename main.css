@@ -1,7 +1,7 @@
-* {
+/** {
     outline: 1px solid red !important;
 }
-
+*/
 body, html {
   margin: 0;
   padding: 0;
@@ -92,6 +92,16 @@ ul {
   color: #212121;
 }
 
+.hamburger {
+  position: fixed;
+  top: 5px;
+  right: 0;
+}
+
+.hamburger  svg {
+  width: 45px;
+  fill: #8F8F8F;
+}
 
 /*
  *
@@ -100,9 +110,12 @@ ul {
  */
 
 .nav {
-  width: 100%;
-  margin-left: auto;
-  margin-right: auto;
+  width: 80%;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+  position: fixed;
+  left: 0;
+  z-index: 1;
 }
 
 .nav__list {
@@ -112,18 +125,27 @@ ul {
 }
 
 .nav__item {
+  background-color: rgba(77, 77, 86, 0.6);
   box-sizing: border-box;
-  display: inline-block;
-  width: 24%;
-  text-align: center;
+  display: block;
+  width: 100%;
+  text-align: left;
   line-height: 24px;
-  padding: 24px;
+  padding: 14px;
+  font-size: 1.5em;
   text-transform: uppercase;
+  border-bottom: solid 1px #BCB7B7
+}
+
+.nav ul li:last-of-type {
+  border-bottom: none;
 }
 
 .nav a {
   text-decoration: none;
-  color: #616161;
+  /*color: #616161;*/
+  color: #fff;
+  padding: 0.5em 2em 0.5em 0;
 }
 
 .nav a:hover {
@@ -131,7 +153,10 @@ ul {
   color: #212121;
 }
 
-
+/* show the menu when it has class open */
+.nav.open {
+  transform: translateX(0);
+}
 /*
  *
  * Main
@@ -388,4 +413,41 @@ footer li {
 footer a {
   text-decoration: none;
   color: #333;
+}
+
+/* 
+add media queries
+*/
+
+/* up to 450px display a hamburger menu 
+and make the drawer menu off canvas*/
+@media screen and (min-width:450px) {
+  #hamburger {
+    display: none;
+  }
+
+  .nav {
+    position: relative;
+    width: 100%;
+    transform: none;
+    translate: none;
+  }
+
+  .nav__item {
+    display: inline-block;
+    width: 24%;
+    line-height: 24px;
+    padding: 24px;
+    background-color: rgba(255, 255, 255, 0);
+    text-align: center;
+    font-size: 12px;
+    z-index: -1;
+  }
+
+.nav a {
+  color: #616161;
+  padding: 0;
+}
+
+
 }
